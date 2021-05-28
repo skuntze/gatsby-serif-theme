@@ -8,7 +8,21 @@ module.exports = {
   plugins: [
     'gatsby-plugin-sass',
     'gatsby-transformer-json',
-    'gatsby-transformer-remark',
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-highlight-code`,
+            options: {
+              terminal: 'carbon',
+              theme: 'vscode',
+              lineNumbers: true,
+            },
+          },
+        ],
+      },
+    },
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-source-filesystem',

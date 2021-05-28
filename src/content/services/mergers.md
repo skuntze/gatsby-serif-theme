@@ -12,6 +12,28 @@ crimen habet Priamum nec.
 
 ## Ne verba patulosque numen vix libet
 
+```csharp
+using Microsoft.Xrm.Sdk;
+using Microsoft.Xrm.Sdk.Query;
+using System;
+using System.Linq;
+using static Microsoft.Xrm.Sdk.Query.ConditionOperator;
+
+namespace BlogDemo
+{
+    public class AddInvoiceLineItemsPlugin : IPlugin
+    {
+        public void Execute(IServiceProvider serviceProvider)
+        {
+            var context = (IPluginExecutionContext)serviceProvider.GetService(typeof(IPluginExecutionContext));
+
+            var factory = (IOrganizationServiceFactory)serviceProvider.GetService(typeof(IOrganizationServiceFactory));
+            var service = factory.CreateOrganizationService(context.UserId);
+        }
+    }
+}
+```
+
 Agitabitur signa lympha; **non lacunae** mox cum tumulis quoque triste dictis.
 Ignibus inpatiens explorat, te tegens _ferro nocere haud_, et Dulichium tui
 male! Quo sed [fuit flexit et](#vexant-achivi) hic die solido, gloria?
